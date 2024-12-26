@@ -38,6 +38,7 @@ dependencies:
   flutter_svg: ^2.0.16
   logger: ^2.5.0
   intl: ^0.20.1
+  carousel_slider: ^5.0.0
   
 
 dev_dependencies:
