@@ -1,5 +1,6 @@
 import 'package:carrot_market_clone/page/detail.dart';
 import 'package:carrot_market_clone/repository/content_repository.dart';
+import 'package:carrot_market_clone/utills/data_utills.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
@@ -87,17 +88,6 @@ class _Home extends State<Home> {
     );
   }
 
-  //화폐단위 포맷 변경
-  String moneyFormat(String data) {
-    if (data == "무료나눔") {
-      return data;
-    }
-    late String formatData;
-    formatData = NumberFormat('###,###,###,###').format(int.parse(data));
-
-    return '${formatData}원';
-  }
-
   Future<List<Map<String, String>>> _loadContents() {
     return contentRepository.getContentsFromLoaction(_currentLocation);
   }
@@ -153,7 +143,7 @@ class _Home extends State<Home> {
                           height: 5,
                         ),
                         Text(
-                          moneyFormat(datas[index]["price"]!),
+                          DataUtills.moneyFormat(datas[index]["price"]!),
                           style: const TextStyle(
                               fontSize: 15, fontWeight: FontWeight.bold),
                         ),
